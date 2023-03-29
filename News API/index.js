@@ -4,6 +4,9 @@ const newsList = document.querySelector('.news-list');
 
 searchForm.addEventListener('submit', retrieve)
 
+
+// Validation Requirement
+
 function retrieve(e){
 
     if(input.value == ''){
@@ -18,8 +21,10 @@ function retrieve(e){
     const apiKey = "d81f904a62c24564bed95c4ad63a0309"
     let topic = input.value;
     
-    let url = `https://newsapi.org/v2/everything?q=${topic}&apiKey=${apiKey}`
+    let url = `https://newsapi.org/v2/everything?pageSize=5&q=${topic}&apiKey=${apiKey}` 
+    'pageSize=30&'
 
+    
     fetch(url).then((res)=>{
         return res.json()
     }).then((data)=>{
